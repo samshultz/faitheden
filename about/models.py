@@ -8,6 +8,7 @@ class AboutUs(models.Model):
 
     class Meta:
         ordering = "-updated",
+        verbose_name_plural = 'About us'
 
     def __str__(self):
         return self.title
