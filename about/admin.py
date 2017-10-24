@@ -5,4 +5,4 @@ from .models import AboutUs
 class AboutUsAdmin(admin.ModelAdmin):
     list_display = 'title', 'created', 'updated'
 
-admin.site.register(AboutUs, AboutUs)
+admin.site.register(AboutUs, AboutUsAdmin)
