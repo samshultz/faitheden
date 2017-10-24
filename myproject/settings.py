@@ -29,7 +29,7 @@ EMAIL_USE_TLS = True
 SECRET_KEY = "$e4-(*d2cx_33f=yc4#4qub7gl0^*srr)b0ze7dt%$rzg&=djx"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Application definition
  
@@ -126,7 +126,7 @@ DATABASES['default'].update(dj_database_url.config(conn_max_age=500))
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['faitheden.herokuapp.com']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
