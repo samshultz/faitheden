@@ -1,0 +1,206 @@
+{% load staticfiles %}
+<DOCTYPE html>
+<html>
+<head>
+<title>{% block title %}{% endblock %}</title>
+<link rel="icon" type="image/jpg" href="{% static 'img/favicon' %}">
+<style>{% block style %} 
+.nav > li > a {
+  color: black;
+  }
+
+
+  a{color: black;}
+
+.active{background-color: white; }
+
+}
+
+{% endblock %}</style>
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'css/base.css' %}"> -->
+
+</head>
+<nav class="navbar navbar-default" style="background-color:#058da6 ; color: black; height:400px;">
+        <div class="container">
+            <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" >
+                  <span style='background-color:black;' class="icon-bar"></span>
+                  <span style='background-color:black;' class="icon-bar"></span>
+                  <span style='background-color:black;' class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand" style=''>
+                <a href='#' style="text-decoration: none; color:white;  font-family: 'Satisfy', cursive;">FaithEden</a></span>
+
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right" style="">
+                <li class="active"><a href="#" >Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Inspirational Quotes</a></li>
+                <li><a href="#">Donate</a></li>
+
+
+
+            </ul>
+            </div>
+        </div>
+
+        </br>
+        <div style="text-align: center;">
+        	{% block jumbo %}
+			{% endblock %}
+        <a href="www.fb.com/faithlooks" style="text-decoration: none; color: black;">Facebook</a>
+         &nbsp&nbsp&nbsp 
+         <a href="www.twitter.com/elanfaith" style="text-decoration: none; color: white;">twitter</a></div>
+    </nav>
+
+
+
+<body>
+
+<div class="container">
+
+
+{% block marquee %}
+{% endblock %}
+
+
+
+{% block content %}
+{% endblock content %}
+</div>
+
+
+
+
+<!-- <footer style="background-color:#058da6;
+  color: black;">
+<div class="container">
+  <div class="row">
+
+
+    <div class="col-sm-3">
+      <h4 style="font-family: 'Satisfy', cursive;" >SITE MAP</h4>
+      <ul style="color:black; text-decoration: none;">
+        <li ><a style='color:black; text-decoration: none;' h>Home</a></li>
+        <li><a style='color:black; text-decoration: none;' href= "#">About Us</a></li>
+        <li><a style='color:black; text-decoration: none;' href="#">Inspirational Quotes</a></li>
+        <li><a style='color:black; text-decoration: none;' href="#">Contact Us</a></li>
+        <li><a style='color:black; text-decoration: none;' href="#">Donate</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-3">
+      <h4 style="font-family: 'Satisfy', cursive;" >FOLLOW FAITHEDEN ON:</h4>
+<a href="www.fb.com/faithlooks">
+<img class="" src="/static/img/fb_logo.jpg" ></a>
+&nbsp&nbsp&nbsp
+<a href="www.twitter.com/elanfaith"> <img class="" src="/static/img/twitter_logo.jpg"></a>
+
+    </div>
+    <div class="col-sm-3" >
+ <h4 style="font-family: 'Satisfy', cursive;">Website Designed By</h4>
+ <p style='color:black; text-decoration: none;' >09032841265</p>
+ <p style='color:black; text-decoration: none;'> email : gospeltruth18@gmail.com</p>
+      
+    </div>
+</div>
+  </div>
+</footer> -->
+
+
+<script type='text/javascript' src="https://js.stripe.com/v2/"></script>
+<script src="/static/js/jquery-3.2.0.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script src="/static/js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+home.html
+
+{% extends 'home/base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}index{% endblock %} </title>
+
+
+{% block style %}
+
+div.polaroid {
+/*  width: 80%;*/
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+
+}
+
+
+div.container1 {
+/*  text-align: center;*/
+ <!--  padding: 10px 20px; -->
+  width:100%;
+
+} 
+
+{% endblock %}
+
+
+
+</head>
+<body>
+{% block jumbo %}
+        <h2 style="font-family: 'Satisfy', cursive; color: white;" >FaithEden Daily Devotionals</h2>
+        <h4 style="font-family: 'Satisfy', cursive; color: white;">Inspirational Quote:</h4>
+ 
+{% endblock %}
+
+
+
+
+
+
+{% block content %}
+
+<div class="row">
+<div class="col-sm-12 col-sm-offset-0.5" ><h3>Latest Posts</h3>
+</div>
+</div>
+
+
+
+{% for obj in object_list %}
+
+
+<div class="col-sm-3">
+  <div class="polaroid" style="height: 500px;">
+  <b><h3>{{ obj.title }}</h3><h5>{{ obj.publish }}</h5></b></br>
+  <p>{{obj.body|linebreaks|truncatechars:200}}</br></p></br></br>
+  <h4>author : {{ obj.author }}</h4>
+  <img src="{{obj.image.url}}" alt="ssssshjg" style="width:100%" height="200px">
+  <a href="" style="text-decoration: none; color: inherit;">
+
+    <div class="container1" >
+      
+      
+        
+        
+      </a>
+    </div>
+  </div>
+</div>
+
+
+{% endfor %}
+{% include "home/pagination.html" with page=object_list %}
+
+
+{% endblock %}
+</body>
+</html>

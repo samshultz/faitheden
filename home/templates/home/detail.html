@@ -1,0 +1,52 @@
+{% extends 'home/base.html' %}
+{% block title %}Details{% endblock %} 
+{% block content %}
+<div class="container">
+{% if instance.image %}
+	<div class = "thumbnails">
+
+      <img src='{{ instance.image.url}}' class="img-responsive" height="864px" width="1324px">
+	</div>
+
+{% endif %}
+<h3>Title:{{ instance.title }} <small>{{instance.timestamp}}</small></h3>
+<h3>author : {{ instance.author }} <small>{{ instance.published }}</small></h3>
+
+<p><div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+</hr>
+</p>
+
+
+
+
+<p>
+<!-- <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
+Facebook
+</a> -->
+
+<a href="https://twitter.com/home?status={{share_string|truncatechars:90}}%20{{ request.build_absolute_uri }}">
+Twitter
+</a>
+
+
+<a href='https://plus.google.com/share?url={{ request.build_absolute_uri }}'>Google Plus</a>
+
+
+<a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{instance.title}}&summary={{share_string|truncatechars:90}}&source={{ request.build_absolute_uri }}">
+Linkedin
+</a>
+
+
+
+<a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{share_string|truncatechars:90}}.">Reddit</a>
+</p>
+
+
+{{ instance.body|linebreaks }}</br>
+<div class="fb-comments" data-href= "{{ request.build_absolute_uri }}" data-numposts="5"fl></div>
+</div>
+
+
+
+
+{% endblock %}

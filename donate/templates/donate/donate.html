@@ -1,0 +1,33 @@
+{% extends 'home/base.html' %}
+{% block script %}
+<script type="text/javascript">
+	Stripe.setPublishableKey('pk_test_pXEr7cLuhUmICYMaqwRoYSLG');
+
+</script>
+
+{% endblock %}
+
+ {% block title %}Donate{% endblock %} 
+
+
+
+
+{% block content %}
+<div class="row">
+<div class="col-sm-6">
+
+<div class="pm-button">
+  <a href="https://test.payumoney.com/paybypayumoney/#/6033C4C5F6DA722D7DFE32BBD57099F3">
+    <img src="https://test.payumoney.com/media/images/payby_payumoney/new_buttons/21.png" />
+  </a>
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'home/base.html' %}
+{% block content %}
+
+		<div class="container">
+		<h3 style="font-family: 'Satisfy', cursive;">INSPIRATIONAL QUOTES</h3>
+<div class="jumbotron">
+
+Inspiration is subjective, as different people will find different things to be inspiring. However, Christians can unite around one inspirational source—God himself.
+</br>
+ God is the basis for all of our inspiration because He is the basis for everything good and everything worth imitating.</br> 
+ Here, are quotes from a variety of influential Christians that inspire us and point us back to Christ. Enjoy these many different thoughts on the Christian life.</br>
+ </br>
+		<ul>
+{% for i in inst %}
+		<li>{{i.text}}</li>
+{% endfor %}
+		</ul>
+{% include "home/pagination.html" with page=inst %}
+</div>
+		</div>
+
+{% endblock %}
