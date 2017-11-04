@@ -1,4 +1,5 @@
 {% extends 'home/base.html' %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,26 +28,6 @@ div.container1 {
 
 } 
 
-.jumbotron{
-
-/*  background-color: #058da6 ;
-  color: white;
-  padding-top: 5px;*/
-  
-}
-
-
-.jumbo .jumbo2{
-  text-align: center;
-}
-
-
-.jumbo .jumbo4{
- 
-}
-  
-
-  
 
 {% endblock %}
 </style>
@@ -54,34 +35,30 @@ div.container1 {
 
 </head>
 <body>
-{% block jumbo %}
+{% block carousel %}
 
-<div class="jumbotron" style="background-color: #058da6 ;">
-    <div class="col-sm-offset-3">
-      <h2 style="font-family: 'Satisfy', cursive; color: white;" >FaithEden Daily Devotionals</h2>
-    </div>
-
-
-        <div class="" >
-          <h3 style="font-family: 'Satisfy', cursive; color: white;">Inspirational Quote:
-            
-            <marquee>{{current_quote}}</marquee></h3>
-        </div>
-          </br></br>
-          <div class="jumbo2">
-          <div class="col-sm-offset-5">
-<a href="https://www.fb.com/faithlooks">
-<img class="" src="/static/img/fb_logo.jpg" ></a>
-&nbsp&nbsp&nbsp
-<a href="https://www.twitter.com/elanfaith"> <img class="" src="/static/img/twitter_logo.jpg"></a>
-
-         </div>
-         </div>
+		<div class="jumbotron" style="background-color: #058da6 ;">
+		    <div class="col-sm-offset-3">
+		      <h2 style="font-family: 'Satisfy', cursive; color: white;" >FaithEden Daily Devotionals</h2>
+		    </div>
 
 
-       
-        </div>
-</div>
+		          </br></br>
+		          <div class="jumbo2">
+		          <div class="col-sm-offset-5">
+					<a href="https://www.fb.com/faithlooks">
+					<img class="" src="/static/img/fb_logo.jpg" ></a>
+					&nbsp&nbsp&nbsp
+					<a href="https://www.twitter.com/elanfaith"> <img class="" src="/static/img/twitter_logo.jpg"></a>
+
+		         </div>
+		         </div>
+
+
+		       
+		        </div>
+		</div>
+
 
 {% endblock %}
 
@@ -92,41 +69,38 @@ div.container1 {
 
 {% block content %}
 <div class="container" >
-<div class="row">
-<div class="col-sm-12 col-sm-offset-0.5" ><h3>Latest Posts</h3>
+                      <div class="row">
+                      
+                        <div class="col-sm-12 col-sm-offset-0.5" ><h3>Latest Posts</h3>
+                         </div>
+                        </div>
+
+
+
+      {% for obj in object_list %}
+      <div class="col-sm-3">
+<div class="well" style="height: 558px;">
+      <!-- <div class="polaroid" style="height: 558px;"> -->
+      <a href="{% url 'myblog:detail' obj.id %}" style="text-decoration: none; color: inherit;">
+        <img src="{{ obj.image.url }}" alt="my image" style="width:100%"  height="130px">
+      <div class="container1" >
+      <b><h3>{{ obj.title }}</h3><h5>{{ obj.publish }}</h5></b></br>
+      <h4>author : {{ obj.author }}</h4></br>
+      <p>{{obj.body|linebreaks|truncatechars:200}}</br></p></br></br>
+      
+
+      </a>            
+      </div>
+   <!--  </div> -->
+
 </div>
-</div>
-
-
-
-{% for obj in object_list %}
-<div class="col-sm-3">
-
-<div class="polaroid">
-<a href="{% url 'myblog:detail' obj.id %}" style="text-decoration: none; color: inherit;">
-  <img src="{{ obj.image.url }}" alt="my image" style="width:100%"  height="130px">
-<div class="container1" >
-<b><h3>{{ obj.title }}</h3><h5>{{ obj.publish }}</h5></b></br>
-<p>{{obj.body|linebreaks|truncatechars:200}}</br></p></br></br>
-<h4>author : {{ obj.author }}</h4>
-
-</a>
-
-
-  
-  
-  
-
-    
-</div>
- </div>
-</div>
+  </div>
 
 
 
 
-{% endfor %}
-{% include "home/pagination.html" with page=object_list %}
+  {% endfor %}
+  {% include "home/pagination.html" with page=object_list %}
 </div>
 
 {% endblock %}

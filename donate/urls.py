@@ -1,11 +1,12 @@
 from django.conf.urls import url
 from django.contrib import admin
-from .views import donate
+from donate.views import Donate
 
 
 app_name='donate'
+
 urlpatterns = [
-    url(r'^$', donate, name='donate1'),
+    url(r'^$', Donate , name='donate1'),
+
 
 ]
-
