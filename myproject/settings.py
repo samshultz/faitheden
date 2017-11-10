@@ -17,8 +17,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'gospeltruth18@gmail.com'
-EMAIL_HOST_PASSWORD = 'bossess1'
+EMAIL_HOST_USER = 'faitheden2@gmail.com'
+EMAIL_HOST_PASSWORD = 'christ123'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -29,7 +29,7 @@ EMAIL_USE_TLS = True
 SECRET_KEY = "$e4-(*d2cx_33f=yc4#4qub7gl0^*srr)b0ze7dt%$rzg&=djx"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # Application definition
  
@@ -45,11 +45,11 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
-    'donate.apps.DonateConfig',
     'contact.apps.ContactConfig',
     'about.apps.AboutConfig',
     'quote.apps.QuoteConfig',
     'crispy_forms',
+     'donate.apps.DonateConfig',
 ]
 
 MIDDLEWARE = [
@@ -126,7 +126,7 @@ DATABASES['default'].update(dj_database_url.config(conn_max_age=500))
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
-ALLOWED_HOSTS = ['faitheden.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -141,10 +141,10 @@ STATICFILES_DIRS = [
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join ((BASE_DIR), 'media_cdn')
+MEDIA_ROOT = os.path.join ((BASE_DIR), 'media/')
 
 
 CRISPY_TEMPLATE_PACK='bootstrap3'

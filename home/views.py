@@ -2,15 +2,15 @@ from django.shortcuts import render
 
 from urllib.parse import quote_plus
 from django.shortcuts import render, get_object_or_404
-from .models import Post #, marq
+from .models import Post
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import datetime
 from random import randint
- 
+
 
 def Post_List(request):
     object_list = Post.objects.all().order_by('-published')
-#the quotes used in the home page (marquee)
+# the quotes used in the home page (marquee)
     # all_quote = marq.objects.all()
     # counter = 0
     # for i in all_quote:
@@ -41,7 +41,7 @@ def Post_List(request):
         object_list = paginator.page(paginator.num_pages)
     # marquee=Post.objects.marquee()
     context = {'object_list': object_list,
-               'page': page} #'current_quote': current_quote }
+               'page': page}  # 'current_quote': current_quote }
     return render(request, 'home/home.html', context)
 
 #
@@ -52,6 +52,4 @@ def Post_Detail(request, id):
     share_string = quote_plus(instance.body)
     context = {'instance': instance, 'share_string': share_string}
     return render(request, 'home/detail.html', context)
- 
-
 

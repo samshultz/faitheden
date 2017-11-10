@@ -59,7 +59,8 @@
         <li {% if request.path == about %} style="background-color: #d0d4d6; color:black; " {% endif %} ><a href="{% url 'about:about1' %}">About Us</a></li>
         <li {% if request.path == quotes %} style="background-color: #d0d4d6; color:black; " {% endif %} ><a href="{% url 'quote:quotes' %}">Inspirational Quotes</a></li>
         <li {% if request.path == contact %} style="background-color: #d0d4d6; color:black; " {% endif %} ><a href="{% url 'contact:contact1' %}">Contact Us</a></li>
-        {# <li {% if request.path == donate %} style="background-color: #d0d4d6; color:black; " {% endif %} ><a href="{% url 'donate:donate1' %}"> Donate</a></li> #}
+        <li {% if request.path == donate %} style="background-color: #d0d4d6; color:black; " {% endif %} ><a href="{% url 'donate:donate1' %}">Donate</a></li>
+
 
       </ul>
 
@@ -81,9 +82,14 @@
 <div class="container">
 
 
+<div class="row">
 
-{% block jumbo %}
+{% block carousel %}
 {% endblock %}
+
+</div>
+
+
 
 {% block marquee %}
 {% endblock %}
@@ -92,55 +98,62 @@
 {% endblock %}
 
 </div>
+
 {% block content %}
 
 {% endblock content %}
 
 
+<footer >
+
+<div class="col-sm-12" style="background-color:#058da6; color: black;">
+<div class="container-fluid">
+<div class="row">
+
+ <div class="col-sm-3">
 
 
-
-
-
-<footer style="background-color:#058da6;
-  color: black;">
-<div class="container">
-  <div class="row">
-
-
-    <div class="col-sm-3">
       <h4 style="font-family: 'Satisfy', cursive;" >SITE MAP</h4>
       <ul style="color:black; text-decoration: none;">
-        <li ><a style='color:black; text-decoration: none;' href="#">Home</a></li>
-        <li><a style='color:black; text-decoration: none;' href= "">About Us</a></li>
-        <li><a style='color:black; text-decoration: none;' href="#">Inspirational Quotes</a></li>
-        <li><a style='color:black; text-decoration: none;' href="#">Contact Us</a></li>
-        <li><a style='color:black; text-decoration: none;' href="#">Donate</a></li>
+        <li ><a style='color:black; text-decoration: none;' href="{% url 'myblog:list' %}" >Home</a></li>
+        <li><a style='color:black; text-decoration: none;' href="{% url 'about:about1' %}">About Us</a></li>
+        <li><a style='color:black; text-decoration: none;' href="{% url 'quote:quotes' %}">Inspirational Quotes</a></li>
+        <li><a style='color:black; text-decoration: none;' href="{% url 'contact:contact1' %}" >Contact Us</a></li>
+        <li><a style='color:black; text-decoration: none;' href="{% url 'donate:donate1' %}">Donate</a></li>
       </ul>
-    </div>
-    <div class="col-sm-3">
-      <h4 style="font-family: 'Satisfy', cursive;" >FOLLOW FAITHEDEN ON:</h4>
-<a href="https://www.fb.com/faithlooks">
-<img class="" src="/static/img/fb_logo.jpg" ></a>
-&nbsp;&nbsp;&nbsp;
-<a href="https://www.twitter.com/elanfaith"> <img class="" src="/static/img/twitter_logo.jpg"></a>
+</div>
 
-    </div>
-    <div class="col-sm-3" >
- <h4 style="font-family: 'Satisfy', cursive;">Website Designed By</h4>
- <p style='color:black; text-decoration: none;' >09032841265</p>
+
+<div class="col-sm-3">
+
+    <h4 style="font-family: 'Satisfy', cursive;" >FOLLOW FAITHEDEN ON:</h4>
+    <a href="https://www.fb.com/faithlooks">
+    <img class="" src="/static/img/fb_logo.jpg" ></a>
+    &nbsp&nbsp&nbsp
+    <a href="https://www.twitter.com/elanfaith"> <img class="" src="/static/img/twitter_logo.jpg"></a>
+
+</div>
+
+<div class="col-sm-3" >
+ <h4 style="font-family: 'Satisfy', cursive;">Design your website<</h4>
+ <p style='color:black; text-decoration: none;' >call or whatsapp: 09032841265 , 08182336574</p>
  <p style='color:black; text-decoration: none;'> email : gospeltruth18@gmail.com</p>
-      
-    </div>
 
-
+</div>
 
 
 
 </div>
-  </div>
+</div>
+</div>
+
 </footer>
-<script type='text/javascript' src="https://js.stripe.com/v2/"></script>
+
+
+
+
+
+
 <script src="/static/js/jquery-3.2.0.js"></script>
 <script src="/static/js/bootstrap.js"></script>
 <script src="/static/js/main.js"></script>

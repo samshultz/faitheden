@@ -27,7 +27,9 @@ urlpatterns = [
     url(r'^quote/', include('quote.urls'),  ),
     url(r'^contact/', include('contact.urls'),  ),
     url(r'^donate/', include('donate.urls'),  ),
+
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

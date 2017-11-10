@@ -1,7 +1,7 @@
 from django.db import models
- 
+
 from django.core.urlresolvers import reverse
- 
+
 
 def upload_location(instance, filename):
     return '%s/%s' % (instance.id, filename)
@@ -27,7 +27,3 @@ class Post(models.Model):
         return reverse('myblog:detail', kwargs={'id': self.id})
 
 
-# class marq(models.Model):
-#     text=models.TextField()
-#     def __str__(self):
-#         return self.text
